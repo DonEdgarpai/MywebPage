@@ -1,0 +1,209 @@
+@font-face {
+  font-family: 'Varino';
+  src: url('/fonts/Varino - Normal.otf') format('opentype'),
+       url('/fonts/Varino - Normal.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, #000111, #110011, #001111, #110011);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 5% 0;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+.neonText {
+  font-family: 'Varino', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 0 3px currentColor;
+  margin-bottom: 2rem;
+  text-align: center;
+  transition: color 2s;
+  z-index: 2;
+  margin-bottom: 4rem;
+}
+
+.logoContainer {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 4rem;
+  z-index: 2;
+  background-color: #000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.neonButton {
+  font-family: 'Varino', sans-serif;
+  padding: 0.75rem 2rem;
+  font-size: 1.25rem;
+  color: #00ffff;
+  background-color: transparent;
+  border: 2px solid #00ffff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.neonButton:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0, 255, 255, 0.4),
+    transparent
+  );
+  transition: all 0.4s;
+}
+
+.neonButton:hover:before {
+  left: 100%;
+}
+
+.neonButton:hover {
+  color: #000;
+  background-color: #00ffff;
+  box-shadow: 0 0 5px #00ffff;
+}
+
+.movingLine {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+              transparent 0%, 
+              #00ffff 50%, 
+              transparent 100%);
+  opacity: 0.7;
+  z-index: 1;
+  box-shadow: 0 0 10px #8B0000, 0 0 20px #8B0000;
+  top: 50%;
+  left: -100%;
+}
+
+.movingLineDiagonal {
+  position: absolute;
+  width: 400%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+              transparent 0%, 
+              #00ffff 50%, 
+              transparent 100%);
+  opacity: 0.3;
+  z-index: 1;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+.diagonalRight {
+  transform: rotate(45deg);
+  transform-origin: top left;
+}
+
+.diagonalLeft {
+  transform: rotate(-45deg);
+  transform-origin: top right;
+}
+
+.heart {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 2;
+}
+
+.languageToggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #00ffff;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle infinite;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0; transform: scale(0.5); }
+  25% { opacity: 0.5; transform: scale(0.7); }
+  50% { opacity: 1; transform: scale(1); }
+  75% { opacity: 0.5; transform: scale(0.7); }
+  100% { opacity: 0; transform: scale(0.5); }
+}
+
+@media (max-width: 768px) {
+  .neonText {
+    font-size: 2rem;
+  }
+
+  .logoContainer {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 3rem;
+  }
+
+  .movingLineDiagonal {
+    width: 600%;
+  }
+}
+
+@media (max-width: 480px) {
+  .neonText {
+    font-size: 1.5rem;
+  }
+
+  .logoContainer {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 2rem;
+  }
+
+  .movingLineDiagonal {
+    width: 800%;
+  }
+}
